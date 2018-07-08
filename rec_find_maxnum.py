@@ -1,5 +1,3 @@
-
-
 def rec_fmax(a, len_a):
 	#print(len_a)
 	if len_a <= 1:
