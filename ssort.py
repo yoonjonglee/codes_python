@@ -7,9 +7,12 @@ def sel_sort(d):
             #print(d[j])
             #if (d[i] > d[j]): # sort by min order
             if (d[i] < d[j]): # sort by max order
-                temp = d[j]
-                d[j] = d[i]
-                d[i] = temp
+                #swap 1
+                #temp = d[j]
+                #d[j] = d[i]
+                #d[i] = temp
+                #swap 2
+                d[j], d[i] = d[i], d[j]
 
 #d = [9, 3, 1, 2, 5]
 d = [2, 4, 5, 1, 3]
