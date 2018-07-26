@@ -2,7 +2,8 @@ def isort(a):
     for i in range(1, len(a)):
         key = a[i]
         j = i-1
-        while 0 <= j and key < a[j]:
+        #while 0 <= j and key < a[j]: # sort by min order
+        while 0 <= j and key > a[j]: # sort by max order
             a[j+1] = a[j]
             j = j-1
 
