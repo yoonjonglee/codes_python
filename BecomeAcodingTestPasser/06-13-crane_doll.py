@@ -40,7 +40,7 @@ sol = 4 # of dolls removed
 # code here
 def solve(board, moves):
     basket = [] # stack
-    sol = -1
+    sol = 0
     for mv in moves:
         for r in range(len(board)):
             if board[r][mv-1] != 0: # found a doll
