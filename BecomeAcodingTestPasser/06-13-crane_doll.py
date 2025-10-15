@@ -18,6 +18,8 @@ board =
 0 2 5 0 1
 4 2 4 4 2
 3 5 1 3 1
+---------
+1 2 3 4 5
 
 moves =
 1 5 3 5 1 2 1 4
@@ -38,6 +40,7 @@ basket =
 sol = 4 # of dolls removed
 '''
 # code here
+"""
 def solve(board, moves):
     basket = [] # stack
     sol = 0
@@ -53,6 +56,28 @@ def solve(board, moves):
                 else:
                     basket.append(doll) # add the doll to the basket
                 break # move to the next move
+
+    return sol
+"""
+def solve(board, moves):
+    lanes = [[] for _ in range(len(board))] # lanes for each column
+    # from len(board), to 0, step -1 (e.g. 4,3,2,1,0)
+    # put dolls in lanes
+    for i in range(len(board) -1, -1, -1):
+        for j in range(len(board)):
+            if board[i][j] != 0:
+                lanes[j].append(board[i][j])
+
+    basket = [] # stack
+    sol = 0
+    for mv in moves:
+        if lanes[mv-1]: # if there is a doll in the lane
+            doll = lanes[mv-1].pop() # take the top doll from the lane
+            if len(basket) and basket[-1] == doll:
+                basket.pop() # remove the top doll
+                sol += 2 # two dolls removed (exloded)
+            else:
+                basket.append(doll) # add the doll to the basket
 
     return sol
 
