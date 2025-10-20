@@ -134,6 +134,83 @@ DFS(0, 0)
 - 9207 페그 솔리테어 (골드4)
 - 1248 Guess(골드3)
 
+### DFS(Depth-First Search)을 파이썬에서 **스택**과 **재귀**로 각각 구현하는 방법
+
+---
+
+#### 1. DFS 개념 간단 정리
+DFS는 **깊이 우선 탐색**으로, 한 노드에서 시작해 가능한 한 깊게 내려간 뒤, 더 이상 갈 곳이 없으면 뒤로 돌아와 다른 경로를 탐색하는 방식입니다.  
+즉, "한 길로 끝까지 가보고, 막히면 돌아와서 다른 길로" 라고 생각하면 됩니다.
+
+---
+
+#### 2. 스택을 이용한 DFS (반복문 방식)
+스택은 "마지막에 넣은 것을 먼저 꺼내는" 자료구조입니다. DFS는 이 특성을 잘 활용합니다.
+
+```python
+def dfs_stack(graph, start):
+    visited = set()       # 방문한 노드 기록
+    stack = [start]       # 시작 노드를 스택에 넣기
+
+    while stack:
+        node = stack.pop()  # 스택에서 꺼내기
+        if node not in visited:
+            print(node)     # 방문 처리 (출력)
+            visited.add(node)
+            # 인접 노드를 스택에 추가 (역순으로 넣으면 순서 제어 가능)
+            stack.extend(reversed(graph[node]))
+
+# 예시 그래프 (인접 리스트)
+graph = {
+    'A': ['B', 'C'],
+    'B': ['D', 'E'],
+    'C': ['F'],
+    'D': [],
+    'E': ['F'],
+    'F': []
+}
+
+dfs_stack(graph, 'A')
+```
+
+**동작 흐름**  
+1. 시작 노드를 스택에 넣음  
+2. 스택에서 꺼내서 방문  
+3. 방문하지 않은 인접 노드를 스택에 넣음  
+4. 스택이 빌 때까지 반복  
+
+---
+
+#### 3. 재귀 함수를 이용한 DFS
+재귀는 "함수가 자기 자신을 호출"하는 방식입니다. DFS는 깊게 들어갔다가 돌아오는 구조라 재귀와 잘 맞습니다.
+
+```python
+def dfs_recursive(graph, node, visited=None):
+    if visited is None:
+        visited = set()
+
+    if node not in visited:
+        print(node)       # 방문 처리
+        visited.add(node)
+        for neighbor in graph[node]:
+            dfs_recursive(graph, neighbor, visited)
+
+# 같은 그래프 사용
+dfs_recursive(graph, 'A')
+```
+
+**동작 흐름**  
+1. 현재 노드를 방문  
+2. 인접 노드로 재귀 호출  
+3. 더 이상 방문할 노드가 없으면 함수가 종료되며 이전 단계로 돌아감  
+
+---
+
+#### 4. 차이점 정리
+- **스택 방식**: 반복문으로 구현, 명시적으로 스택 자료구조를 사용  
+- **재귀 방식**: 함수 호출 스택을 이용, 코드가 간결하지만 깊이가 너무 깊으면 `RecursionError` 발생 가능  
+- **공통점**: 방문 여부를 기록해야 무한 루프 방지  
+
 ----------------------------------
 ### 2. BFS
 - 1697 숨바꼭질 (실버1)
