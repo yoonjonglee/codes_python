@@ -226,6 +226,61 @@ dfs_recursive(graph, 'A')
 - 1283 파티 (골드3)
 - 10282 해킹 (골드4)
 
+### BFS(Breadth-First Search)를 큐를 이용해서 구현하는 방법
+
+BFS는 **너비 우선 탐색**으로, 시작 노드에서 가까운 노드부터 차례대로 탐색하는 알고리즘입니다.  
+이때 **큐(Queue)** 자료구조를 사용하면, 방문할 노드를 순서대로 관리할 수 있습니다.  
+
+---
+
+#### BFS 동작 흐름
+1. **시작 노드를 큐에 넣는다.**
+2. 큐에서 노드를 꺼내서 방문 처리한다.
+3. 해당 노드의 **아직 방문하지 않은 인접 노드**를 큐에 넣는다.
+4. 큐가 빌 때까지 2~3 과정을 반복한다.
+
+---
+
+#### 파이썬 예제
+```python
+from collections import deque
+
+def bfs(graph, start):
+    visited = set()          # 방문한 노드를 기록
+    queue = deque([start])   # 시작 노드를 큐에 넣기
+
+    while queue:
+        node = queue.popleft()  # 큐에서 꺼내기
+        if node not in visited:
+            print(node)         # 방문 처리 (출력 예시)
+            visited.add(node)
+
+            # 인접 노드 중 방문하지 않은 노드를 큐에 추가
+            for neighbor in graph[node]:
+                if neighbor not in visited:
+                    queue.append(neighbor)
+
+# 예시 그래프 (인접 리스트)
+graph = {
+    'A': ['B', 'C'],
+    'B': ['A', 'D', 'E'],
+    'C': ['A', 'F'],
+    'D': ['B'],
+    'E': ['B', 'F'],
+    'F': ['C', 'E']
+}
+
+bfs(graph, 'A')
+```
+
+---
+
+### 실행 흐름 예시
+- 큐: `['A']` → 꺼내서 방문 → 인접 노드 `B, C` 추가  
+- 큐: `['B', 'C']` → `B` 방문 → 인접 노드 `D, E` 추가  
+- 큐: `['C', 'D', 'E']` → `C` 방문 → 인접 노드 `F` 추가  
+- … 이런 식으로 **가까운 노드부터 차례대로** 탐색합니다.
+
 ---------------------------------
 ### 3. Binary Search
 - 1920 수 찾기 (실버4)
