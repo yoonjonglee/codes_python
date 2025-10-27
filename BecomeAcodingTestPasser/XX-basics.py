@@ -69,4 +69,36 @@ def bfs(graph, s):
             v.add(node); print(node) # 방문 처리 (출력)
             dq.extend(graph[node]) # 인접 노드를 큐에 추가
 
-bfs(graph, s)
+# bfs(graph, s)
+
+## 5. sorting
+
+#input
+arr = [5, 2, 0, 9, 0, 1, 0, 5, 0, 6]
+
+#code here. but don't make a new list
+# nested loop way
+def move_zero_to_end(n):
+    for i in range(len(n)):
+        for j in range(len(n)):
+            if n[i] != 0 and n[j] == 0 and i > j: # find non-zero at i and zero at j
+                n[j]=n[i] ; n[i] = 0 # swap
+    print(n)
+"""
+# double loop way
+def move_zero_to_end(n):
+    non_zero_index = 0  # This will track the position for non-zero elements
+
+    for i in range(len(n)):
+        if n[i] != 0:  # Check if the current element is not zero
+            n[non_zero_index] = n[i]  # Move it to the front
+            non_zero_index += 1  # Increment the index for next non-zero
+
+    # Fill remaining positions with zeros
+    for i in range(non_zero_index, len(n)):
+        n[i] = 0
+    print(n)
+"""
+
+#output
+move_zero_to_end(arr)
