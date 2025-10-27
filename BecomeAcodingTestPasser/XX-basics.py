@@ -71,7 +71,7 @@ def bfs(graph, s):
 
 # bfs(graph, s)
 
-## 5. sorting
+## 5.1. sorting - move zeros to end
 
 #input
 arr = [5, 2, 0, 9, 0, 1, 0, 5, 0, 6]
@@ -99,6 +99,31 @@ def move_zero_to_end(n):
         n[i] = 0
     print(n)
 """
-
 #output
-move_zero_to_end(arr)
+# move_zero_to_end(arr)
+
+# 5.2. sorting - custom sort with lambda
+#l = [[10, 19], [7, 10], [6, 10]]
+d = {'A':[10, 19], 'B':[7, 10], 'C':[6, 10]}
+#sol = sorted(l, key = lambda item: item[1])
+#sol = sorted(l, key = lambda item: item[1], reverse = True)
+#sol = dict(sorted(d.items())) # sort dict by key
+#sol = dict(sorted(d.items(), reverse = True)) # sort dict by key
+sol = dict(sorted(d.items(), key=lambda item: item[1])) # sort dict by whole value
+#sol = dict(sorted(d.items(), key=lambda item: item[1][1])) # sort dict by 2nd value
+"""
+1. **`d.items()`**  
+   - 딕셔너리의 `(key, value)` 쌍을 튜플 형태로 반환합니다.  
+   - 예:  
+     ```python
+     d = {'A':[10, 19], 'B':[7, 10], 'C':[6, 10]}
+     list(d.items())
+     # [('A', [10, 19]), ('B', [7, 10]), ('C', [6, 10])]
+     ```
+2. **`key=lambda item: item[1][1]`**  
+   - `item`은 `(key, value)` 튜플입니다.  
+   - `item[1]` → value 부분 (`[10, 19]` 같은 리스트)  
+   - `item[1][1]` → value 리스트의 두 번째 요소 (예: `19`, `10`, `10`)  
+   - 즉, 정렬 기준을 “value의 두 번째 값”으로 지정하는 것입니다.
+"""
+print(sol)
