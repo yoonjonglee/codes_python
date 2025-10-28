@@ -126,4 +126,39 @@ sol = dict(sorted(d.items(), key=lambda item: item[1])) # sort dict by whole val
    - `item[1][1]` → value 리스트의 두 번째 요소 (예: `19`, `10`, `10`)  
    - 즉, 정렬 기준을 “value의 두 번째 값”으로 지정하는 것입니다.
 """
-print(sol)
+#print(sol)
+
+# 6. most frequent element
+# Return the most frequent element from a given numbers list. The time complexity should be better than O(n logn).
+
+# Sample lists to use:
+numbers = [1, 1, 8, 6, 4, 13, 1, 7, 8, 6]
+
+# Type your code here:
+"""
+def mfe(ns):
+    mn=0; sns=set(ns)
+    for x in sns:
+        fn = ns.count(x)
+        if fn > mn: mn = fn; fe = x
+    print(fe)
+"""
+#solution-without .count()
+def mfe(ns):
+    count = {} # dictionary to store frequency of each element
+    for num in ns: # count frequency
+        count[num] = count.get(num, 0) + 1 # increment count
+        # - `count.get(num, 0)`는 딕셔너리에서 `num` 키의 값을 가져오고, 없으면 0을 기본값으로 반환. 여기에 1을 더해 해당 숫자의 등장 횟수를 갱신.
+    print(count)
+    print(max(count, key=count.get)) # `count` 딕셔너리에서 값(등장 횟수)이 가장 큰 키(숫자)를 찾아 출력합니다.
+    """
+    max() 함수는 기본적으로 iterable(리스트, 딕셔너리, 튜플 등)에서 가장 큰 값을 찾습니다
+    딕셔너리를 max()에 넣으면 기본적으로 **키(key)**를 기준으로 비교합니다.
+    key=count.get는 비교 기준을 **각 키에 해당하는 값(value)**으로 바꾸는 역할을 합니다.
+    활용예시
+    - 단어 빈도수에서 가장 많이 등장한 단어 찾기
+    - 점수 딕셔너리에서 최고 점수를 받은 사람 찾기
+    - 데이터 집계 결과에서 최대값을 가진 항목 찾기
+    """
+
+mfe(numbers)
