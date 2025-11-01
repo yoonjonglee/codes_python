@@ -150,7 +150,8 @@ def mfe(ns):
         count[num] = count.get(num, 0) + 1 # increment count
         # - `count.get(num, 0)`는 딕셔너리에서 `num` 키의 값을 가져오고, 없으면 0을 기본값으로 반환. 여기에 1을 더해 해당 숫자의 등장 횟수를 갱신.
     print(count)
-    print(max(count, key=count.get, default=None)) # `count` 딕셔너리에서 값(등장 횟수)이 가장 큰 키(숫자)를 찾아 출력합니다.
+    m = max(count, key = count.get, default=None) # 딕셔너리에서 값(등장 횟수)이 가장 큰 키(숫자)를 찾아 출력합니다.
+    print(m) # `count` 딕셔너리에서 값(등장 횟수)이 가장 큰 키(숫자)를 찾아 출력합니다.
     """
     max() 함수는 기본적으로 iterable(리스트, 딕셔너리, 튜플 등)에서 가장 큰 값을 찾습니다
     딕셔너리를 max()에 넣으면 기본적으로 **키(key)**를 기준으로 비교합니다.
