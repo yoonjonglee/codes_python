@@ -1,6 +1,7 @@
 import sys
 import itertools
 from collections import deque
+from collections import Counter
 
 ## 1. manhattan distance
 #input
@@ -161,5 +162,9 @@ def mfe(ns):
     - 점수 딕셔너리에서 최고 점수를 받은 사람 찾기
     - 데이터 집계 결과에서 최대값을 가진 항목 찾기
     """
+# mfe(numbers)
 
-mfe(numbers)
+# 7. counter
+k = 6; ts = [1,3,2,5,4,5,2,3] # 3
+counter = Counter(ts)
+print(counter)
