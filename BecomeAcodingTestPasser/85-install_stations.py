@@ -9,7 +9,7 @@ n = 11; sts = [4, 11]; w = 1 # 3
 #E.X of 1st input. [0][1][2!][3*][4!][5][6][7][8][9!][10*] 
 # -> to cover 0, 1 & 5, 6, 7, 8 zone, 3 stations are needed more. 
 
-
+"""below is the wrong answer. try to fix it"""
 def solution(n, sts, w):
     answer = 0
     apt = [0] * n ; cnt = 0
