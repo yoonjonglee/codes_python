@@ -166,5 +166,5 @@ def mfe(ns):
 
 # 7. counter
 k = 6; ts = [1,3,2,5,4,5,2,3] # 3
-counter = Counter(ts)
+counter = Counter(ts) # 리스트에서 각 요소의 등장 횟수를 세어 딕셔너리로 반환, Counter({3: 2, 2: 2, 5: 2, 1: 1, 4: 1})
 print(counter)
