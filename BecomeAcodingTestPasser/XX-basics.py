@@ -22,11 +22,11 @@ d = ['A', 'B', 'C']
 
 #code here
 #p = itertools.permutations(d) # 모든 순열 생성
-#p = itertools.permutations(d, 2) # 2개씩 뽑는 모든 순열 생성
-#sol = [list(x) for x in p]
-
+p = itertools.permutations(d, 2) # 2개씩 뽑는 모든 순열 생성
+#!caution! If not converting list(), Set()format default. but, after saved in Set(), converting list() is not allowed.
+sol = [list(x) for x in p]
 #output
-#print(sol)
+print(sol)
 
 ## 3.1. DFS - stack, adjacency list
 
@@ -166,5 +166,5 @@ def mfe(ns):
 
 # 7. counter
 k = 6; ts = [1,3,2,5,4,5,2,3] # 3
-counter = Counter(ts) # 리스트에서 각 요소의 등장 횟수를 세어 딕셔너리로 반환, Counter({3: 2, 2: 2, 5: 2, 1: 1, 4: 1})
-print(counter)
+#counter = Counter(ts) # 리스트에서 각 요소의 등장 횟수를 세어 딕셔너리로 반환, Counter({3: 2, 2: 2, 5: 2, 1: 1, 4: 1})
+#print(counter)
