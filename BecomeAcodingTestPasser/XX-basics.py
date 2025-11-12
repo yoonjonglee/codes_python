@@ -23,10 +23,10 @@ d = ['A', 'B', 'C']
 #code here
 #p = itertools.permutations(d) # 모든 순열 생성
 p = itertools.permutations(d, 2) # 2개씩 뽑는 모든 순열 생성
-#!caution! If not converting list(), Set()format default. but, after saved in Set(), converting list() is not allowed.
-sol = [list(x) for x in p]
+#!caution! If not converting list(), tuple()format default. but after saved as tuple(), converting into list() is not allowed.
+#sol = [list(x) for x in p]
 #output
-print(sol)
+#print(sol)
 
 ## 3.1. DFS - stack, adjacency list
 
