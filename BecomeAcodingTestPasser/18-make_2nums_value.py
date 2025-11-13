@@ -1,3 +1,4 @@
+from collections import Counter
 # 8. find 2 numbers to make the target value
 # make_2nums_value.py
 
