@@ -14,14 +14,14 @@ def solve():
             if t == li[i]+li[j]: return True
     return False
 """
-# way2 - O(N+K), better way
+# way2 - O(N+K), better way for lower complexity (without nested loop)
 def solve():
-    dic = Counter(li)
-    cv = list(dic.items())
+    dic = Counter(li) # O(N), dic is a dictionary of the list
+    cv = list(dic.items()) # O(K), cv is a list of the dictionary
     for x in range(len(cv)):
-        k=t-cv[x][0]
-        if k < len(cv) and 1 == dic[k]:
-            return True
-    return False
+        k=t-cv[x][0] # k is the target value - the current value
+        if k < len(cv) and 1 == dic[k]: # check if the target value is in the dictionary and the value is 1
+            return True # if the target value is in the dictionary and the value is 1, return True
+    return False # if the target value is not in the dictionary or the value is not 1, return False
 
 print(solve())

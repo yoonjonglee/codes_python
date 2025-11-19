@@ -1,6 +1,9 @@
 from collections import Counter
 import itertools
 
+# https://school.programmers.co.kr/learn/courses/30/lessons/72411
+# 코스요리 메뉴 구성 최적화
+
 #orders=["ABCFG", "AC", "CDE", "ACDE", "BCFG", "ACDEH"]; course=[2,3,4]   #["AC", "ACDE", "BCFG", "CDE"]
 #orders=["ABCDE", "AB", "CD", "ADE", "XYZ", "XYZ", "ACD"]; course=[2,3,5] #["ACD", "AD", "ADE", "CD", "XYZ"]
 orders=["XYZ", "XWY", "WXA"]; course=[2,3,4] #["WX", "XY"]
@@ -28,17 +31,23 @@ def solution(orders, course):
 
     return sorted(answer)
 """
-# Better Answer - use of Combinations
+# Better Answer - use of Combinations, lower complexity
 def solution(orders, course):
-    answer = []
-    for co in course:
-        csms = []
-        for ord in orders:
-            comb=itertools.combinations(sorted(ord), co)
-            csms+=comb
-        print([list(cb) for cb in csms])
+    answer = []; out=[] # answer is the list of the menu, out is the list of the menu
+    for co in course: # O(N), co is the number of the menu
+        csms = [] # csms is the list of the menu
+        for ord in orders: # O(N), ord is the order of the menu
+            comb=itertools.combinations(sorted(ord), co) # O(N), comb is the combination of the menu
+            for c in list(comb): # O(N), c is the combination of the menu
+                if all(d in list(ord) for d in c): csms.append(c) # O(N), if the combination of the menu is in the order of the menu, then add the combination to the list
+        d_csms=Counter(csms) # O(N), d_csms is the dictionary of the menu
+        f_d_csms = [[k, v] for k, v in d_csms.items() if v == max(d_csms.values()) and v>=2] # O(N), f_d_csms is the list of the menu, if the value of the menu is the maximum value and the value is greater than or equal to 2, then add the menu to the list
+        l_f_d_csms = [l[0] for l in f_d_csms] # O(N), l_f_d_csms is the list of the menu
+        out = list({tuple(sorted(p)) for p in l_f_d_csms}) # O(N), out is the list of the menu, sorted by the menu
+        res = ["".join(r) for r in out] # O(N), res is the list of the menu, joined as a string
+        for it in res: answer.append(it) # O(N), answer is the list of the menu, added to the list
 
-    return sorted(answer)
+    return sorted(answer) # O(N), answer is the list of the menu, sorted by the menu
 
 print(solution(orders, course))
 
