@@ -20,3 +20,19 @@ import itertools; from itertools import permutations, combinations
 permutations('ABC', 2) #('A','B'),('A','C'),('B','A'),('B','C'),('C','A'),('C','B')
 #1.10
 combinations('ABC', 2) #('A','B'),('A','C'),('B','C')
+#2.1
+l = [[10, 19], [7, 10], [6, 10]]; print(sorted(l, key=lambda item:item[1]))
+#2.2
+l = [[10, 19], [7, 10], [6, 10]]; print(sorted(l, key=lambda item:item[1], reverse=True))
+#2.3
+d = {'A':[10, 19], 'B':[7, 10], 'C':[6, 10]}; print(d.items())
+#2.4
+d = {'A':[10, 19], 'B':[7, 10], 'C':[6, 10]}; print(dict(sorted(d.items())))
+#2.5 
+d = {'A':[10, 19], 'B':[7, 10], 'C':[6, 10]}; print(list(sorted(d.items())))
+#2.6 
+d = {'A':[10, 19], 'B':[7, 10], 'C':[6, 10]}; print(dict(sorted(d.items(), key=lambda item:item[1])))
+#2.7 
+d = {'A':[10, 19], 'B':[7, 10], 'C':[6, 10]}; print(dict(sorted(d.items(), key=lambda item:item[1][1])))
+#2.9
+arr=[5, 2, 0, 9, 0, 1, 0, 5, 0, 6]; nz=0; for i in range(len(arr)): if arr[i]!=0: arr[nz]=arr[i]; nz+=1; for j in range(nz, len(arr)): arr[j]=0
