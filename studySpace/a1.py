@@ -34,5 +34,17 @@ d = {'A':[10, 19], 'B':[7, 10], 'C':[6, 10]}; print(list(sorted(d.items())))
 d = {'A':[10, 19], 'B':[7, 10], 'C':[6, 10]}; print(dict(sorted(d.items(), key=lambda item:item[1])))
 #2.7 
 d = {'A':[10, 19], 'B':[7, 10], 'C':[6, 10]}; print(dict(sorted(d.items(), key=lambda item:item[1][1])))
-#2.9
+#2.8
 arr=[5, 2, 0, 9, 0, 1, 0, 5, 0, 6]; nz=0; for i in range(len(arr)): if arr[i]!=0: arr[nz]=arr[i]; nz+=1; for j in range(nz, len(arr)): arr[j]=0
+#3.1
+dic={}; for n in range(3): dic[n]=str(n); print(dic)
+#3.2
+dic={1:2,2:1,3:1}; for n in dic.keys(): print(dic.get(n))
+#3.3
+ns=[1,1,2,3]; dic={}; for n in ns: dic[n]=dic.get(n,0)+1; print(dic)
+#3.4
+dic={1:2,2:1,3:1}; print(max(dic,key=dic.get))
+#3.5
+from collections import Counter
+#3.6
+ts = [1,3,2,5,4,5,2,3]; print(Counter(ts))
