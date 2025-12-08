@@ -48,3 +48,9 @@ dic={1:2,2:1,3:1}; print(max(dic,key=dic.get))
 from collections import Counter
 #3.6
 ts = [1,3,2,5,4,5,2,3]; print(Counter(ts))
+#4.1
+def factorial(n): if n == 1: return 1"\n" return n*factorial(n-1)
+#4.2
+def sum_list(li): if not li: return 0 "\n" return li[0]+sum_list(li[1:])
+#4.3
+def fibonacci(n): if n<=1 return n "\n" return fibonacci(n-2)+fibonacci(n-1)
