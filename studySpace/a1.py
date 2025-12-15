@@ -54,3 +54,24 @@ def factorial(n): if n == 1: return 1"\n" return n*factorial(n-1)
 def sum_list(li): if not li: return 0 "\n" return li[0]+sum_list(li[1:])
 #4.3
 def fibonacci(n): if n<=1 return n "\n" return fibonacci(n-2)+fibonacci(n-1)
+#4.4
+def preorder(nodes, idx):
+  if idx < len(nodes):
+    ret = str(nodes[idx]) + " "; ret += preorder(nodes, idx * 2 + 1); ret += preorder(nodes, idx * 2 + 2)
+    return ret
+  else: return ""
+print(preorder([1, 2, 3, 4, 5, 6, 7], 0)[:-1]) # "1 2 4 5 3 6 7"
+4.5
+def inorder(nodes, idx):
+  if idx < len(nodes):
+    ret = inorder(nodes, idx * 2 + 1); ret += str(nodes[idx]) + " "; ret += inorder(nodes, idx * 2 + 2)
+    return ret
+  else: return ""
+print(inorder([1, 2, 3, 4, 5, 6, 7], 0)[:-1]) # "4 2 5 1 6 3 7
+#4.6
+def postorder(nodes, idx):
+  if idx < len(nodes):
+    ret = postorder(nodes, idx * 2 + 1); ret += postorder(nodes, idx * 2 + 2); ret += str(nodes[idx]) + " "
+    return ret
+  else: return ""
+print(postorder([1, 2, 3, 4, 5, 6, 7], 0)[:-1]) # "4 5 2 6 7 3 1"
