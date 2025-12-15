@@ -7,3 +7,31 @@ def find_pivo(a):
 Nth=input("enter number:_ ")
 
 print(find_pivo(int(Nth)))
+
+"""
+fivo(6)
+  - fivo(4)
+    - fivo(2)
+      - fivo(0)=0
+	    - +fivo(1)=1
+    - +fivo(3)
+      - fivo(1)=1
+	    - +fivo(2)
+	      - fivo(0)=0
+	      - +fivo(1)=1
+  - +fivo(5)
+    - fivo(3)
+      - fivo(1)=1
+	    - +fivo(2)
+	      - fivo(0)=0
+	      - +fivo(1)=1
+    - +fivo(4)
+      - fivo(2)
+	      - fivo(0)=0
+	      - +fivo(1)=1
+	  - +fivo(3)
+	    - fivo(1)=1
+	    - +fivo(2)
+	      - fivo(0)=0
+	      - +fivo(1)=1
+"""
