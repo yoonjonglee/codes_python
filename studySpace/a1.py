@@ -75,3 +75,25 @@ def postorder(nodes, idx):
     return ret
   else: return ""
 print(postorder([1, 2, 3, 4, 5, 6, 7], 0)[:-1]) # "4 5 2 6 7 3 1"
+#5.1
+def insert(bst, nd):
+    nnd={"v":nd,"l":None,"r":None}
+    if bst is None: return nnd
+    curr=bst
+    while True:
+        if nd < curr["v"]:
+            if curr["l"] is not None: curr=curr["l"]
+            else: curr["l"]=nnd;break
+        else:
+            if curr["r"] is not None: curr=curr["r"]
+            else: curr["r"]=nnd;break
+    return bst
+            
+def solution(lst):
+    bst = None
+    for nd in lst:
+        bst = insert(bst, nd)
+    return print(bst)
+
+lst = [5, 3, 8, 4, 2, 1, 7, 10]; solution(lst)
+# {'v': 5, 'l': {'v': 3, 'l': {'v': 2, 'l': {'v': 1, 'l': None, 'r': None}, 'r': None}, 'r': {'v': 4, 'l': None, 'r': None}}, 'r': {'v': 8, 'l': {'v': 7, 'l': None, 'r': None}, 'r': {'v': 10, 'l': None, 'r': None}}}
