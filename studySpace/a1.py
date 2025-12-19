@@ -61,7 +61,7 @@ def preorder(nodes, idx):
     return ret
   else: return ""
 print(preorder([1, 2, 3, 4, 5, 6, 7], 0)[:-1]) # "1 2 4 5 3 6 7"
-4.5
+#4.5
 def inorder(nodes, idx):
   if idx < len(nodes):
     ret = inorder(nodes, idx * 2 + 1); ret += str(nodes[idx]) + " "; ret += inorder(nodes, idx * 2 + 2)
@@ -98,7 +98,7 @@ def solution(lst):
 lst = [5, 3, 8, 4, 2, 1, 7, 10]; solution(lst)
 # {'v': 5, 'l': {'v': 3, 'l': {'v': 2, 'l': {'v': 1, 'l': None, 'r': None}, 'r': None}, 'r': {'v': 4, 'l': None, 'r': None}}, 'r': {'v': 8, 'l': {'v': 7, 'l': None, 'r': None}, 'r': {'v': 10, 'l': None, 'r': None}}}
 #5.2
-def search(bst, sval):
+def search(bst,sval):
     curr = bst
     while curr is not None and curr['v'] != sval:
         if sval < curr['v']: curr = curr['l']
@@ -111,7 +111,7 @@ def solution(bst, slist):
     for sval in slist:
         if search(bst, sval): res.append(True)
         else: res.append(False)
-    return print(res)
+    print(res)
 
-slst = [1, 2, 5, 6]; bst = {'v': 5, 'l': {'v': 3, 'l': {'v': 2, 'l': {'v': 1, 'l': None, 'r': None}, 'r': None}, 'r': {'v': 4, 'l': None, 'r': None}}, 'r': {'v': 8, 'l': {'v': 7, 'l': None, 'r': None}, 'r': {'v': 10, 'l': None, 'r': None}}}
+slst=[1,2,5,6]; bst={'v': 5, 'l': {'v': 3, 'l': {'v': 2, 'l': {'v': 1, 'l': None, 'r': None}, 'r': None}, 'r': {'v': 4, 'l': None, 'r': None}}, 'r': {'v': 8, 'l': {'v': 7, 'l': None, 'r': None}, 'r': {'v': 10, 'l': None, 'r': None}}}
 solution(bst, slst)
