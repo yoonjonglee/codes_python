@@ -33,6 +33,7 @@ def search(root, key):
     curr = root
     # 현재 노드가 있고, 찾는 값이 아닐 때까지 반복
     while curr is not None and curr['val'] != key:
+        # None 은 객체이므로, 비교할 때 is(+ not) 형태를 사용하며, key는 값이므로, 비교할 때 =(!)=형태를 사용함이 파이썬 표준
         if key < curr['val']:
             curr = curr['left']  # 왼쪽으로 이동
         else:
