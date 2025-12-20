@@ -27,6 +27,8 @@ def insert(root, key):
                 break
     
     return root # 뿌리는 변하지 않았으니 그대로 반환
+    # curr는 단지 탐색용 포인터이고, 트리 전체를 대표하지 않기 때문에 반환하면 안 됩니다.반드시 bst(루트)를 반환해야 전체 트리를 유지할 수 있습니다.
+
 
 # 2. 데이터를 찾는 함수 (search)
 def search(root, key):
